@@ -1,10 +1,43 @@
+// class User {
+//   email: string;
+//   name: string;
+//   private readonly city: string = "";
+//   constructor(email: string, name: string) {
+//     this.email = email;
+//     this.name = name;
+//   }
+// }
 class User {
-  email: string;
-  name: string;
-  constructor(email: string, name: string) {
-    this.email = email;
-    this.name = name;
+  protected  _courseCount = 1;
+  private readonly city: string = "Surat ";
+  constructor(public email: string, public name: string) {}
+
+  private deleteToken(){
+    console.log("Token deleted")
+  }
+
+  get getCompanyInfo(): string {
+    return `tesla${this.email}`;
+  }
+
+  get courseCount(): number {
+    return this._courseCount;
+  }
+
+  set courseCount(courseNum) {
+    if (courseNum <= 1) {
+      throw new Error("Course count should be more than 1");
+    }
+    this._courseCount = courseNum;
+  }
+}
+
+class SubUser extends User{
+  isFamily:boolean = false
+  changeCourseCount(){
+    this._courseCount = 4
   }
 }
 
 const hardik = new User("test@gmail.com", "hardik");
+// hardik.city
