@@ -1,5 +1,7 @@
 const score: Array<number> = [];
 const names: Array<number> = [];
+const names1: number[] = [];
+// const [array, setArray] = <number[]> useState([])
 
 const checkValidation = (val: boolean | number): boolean | number => {
   return val;
